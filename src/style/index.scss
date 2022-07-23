@@ -325,12 +325,12 @@ body {
 
         .blog_comment_body {
             position: relative;
-            margin-left: 12px;
-            margin-top: 4px;
+            margin-left: 4px;
             padding: 0 10.8px;
             background-color: var(--color-basic-100);
             border-radius: 8px;
             color: var(--color-basic-900);
+            font-size: 13px;
             max-width: 540px;
             line-height: 1.6;
             padding: 4px 10.8px;
@@ -401,7 +401,7 @@ body {
     }
 
     .layer {
-        padding: 0 4px;
+        padding: 2px 4px;
         color: var(--color-basic-50);
         background-color: var(--themeColor);
         border-radius: 3px;
@@ -952,7 +952,6 @@ body {
 }
 
 .avatar {
-    border: 1px solid #eee;
     border-radius: 50%;
     transform: scale(0.7);
 }
