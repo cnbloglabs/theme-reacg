@@ -1,0 +1,6 @@
+{
+  "extends": "@guangzan",
+  "globals": {
+    "$": "readonly"
+  }
+}
