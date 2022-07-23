@@ -13,15 +13,43 @@ function buildCopyright() {
 }
 
 function buildCustomLinks(devOptions) {
-  const config = useLinksOptions(devOptions)
-
-  if (config.links && config.links.length) {
-    const $links = $('<ul id="links"></ul>')
-    for (const { title, url } of config.links) {
-      $links.append(`<li><a href='${url}'>${title}</a></li>`)
+  /**
+   * 兼容旧的配置 Array<Link>
+   * 当前推荐的配置类型为
+   *    {
+   *      enable: boolean;
+   *      value: Array<Link>;
+   *    }
+   */
+  function isOldConfig(userConfig) {
+    for (const [key] of Object.entries(userConfig)) {
+      if (!Number.isNaN(parseInt(key))) {
+        return true
+      }
     }
-    $('#footer').prepend($links.prop('outerHTML'))
+    return false
   }
+
+  let links
+  const userConfig = useLinksOptions()
+  if (isOldConfig(userConfig)) {
+    links = []
+    for (const [key, value] of Object.entries(userConfig)) {
+      if (!Number.isNaN(parseInt(key))) {
+        links.push(value)
+      }
+    }
+  } else {
+    const { enable, value } = userConfig
+    links = value
+    if (!enable) { return }
+  }
+
+  const $links = $('<ul id="links"></ul>')
+  for (const link of links) {
+    $links.append(`<li><a href='${link.url ? link.url : link.link}'>${link.title ? link.title : link.name}</a></li>`)
+  }
+  $('#footer').prepend($links.prop('outerHTML'))
 }
 
 export const footer = (theme, devOptions) => {
