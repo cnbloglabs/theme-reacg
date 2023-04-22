@@ -1,23 +1,21 @@
 #blog-news {
-    display: grid;
-    grid-column-gap: 8px;
-    grid-template-rows: 1fr auto;
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-        'avatar info'
-        'follow follow';
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-profile {
+    display: flex;
 }
 
 .custom-avatar {
-    grid-area: avatar;
     width: 80px;
     height: 80px;
     border-radius: 2px;
 }
 
 .custom-info {
+    margin-left: 8px;
     position: relative;
-    grid-area: info;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -25,7 +23,6 @@
     padding-bottom: 4px;
     overflow: hidden;
     font-size: 13px;
-    
 
     .custom-name {
         display: inline-block;
@@ -37,9 +34,7 @@
     }
 }
 
-// #blog-news {
 #profile_block {
-    grid-area: follow;
     margin-top: 10px;
     font-size: 0;
 
