@@ -8,8 +8,8 @@ dependencies:
     specifier: ^0.2.6
     version: 0.2.6
   '@acnb/plugins':
-    specifier: ^0.4.3
-    version: 0.4.3
+    specifier: ^0.4.5
+    version: 0.4.5
 
 devDependencies:
   '@guangzan/eslint-config':
@@ -49,8 +49,8 @@ packages:
       '@acnb/core': 1.0.8
     dev: false
 
-  /@acnb/plugins@0.4.3:
-    resolution: {integrity: sha512-OFTyoK12zEaALy2tI0eozXW9hsHehRFxbV5XGNihqYyOwATgr/rtM08Ht0p7Lzt5Ht8oJ8UE1wfbLpJYr+BDYA==}
+  /@acnb/plugins@0.4.5:
+    resolution: {integrity: sha512-M9d1o2Ks8zbbkJvT5PZTUSghaM4HesYg6YXl8QRWVQgt7lRzmCgdvFzA3LEUeLn1MLky1z6FCWXHV1yUK68JRw==}
     dependencies:
       '@acnb/core': 1.0.8
       '@acnb/options': 0.2.6
