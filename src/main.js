@@ -5,7 +5,6 @@ import {
   catalog,
   charts,
   clickEffects,
-  codeTrafficLight,
   colorMode,
   commentsAvatars,
   darkMode,
@@ -34,12 +33,6 @@ createTheme()
     {
       enable: true,
       color: '#FB7299',
-    },
-  )
-  .use(
-    codeTrafficLight,
-    {
-      enable: true,
     },
   )
   .use(
