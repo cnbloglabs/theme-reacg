@@ -1,14 +1,12 @@
 import './index.scss'
-import { avatar } from '../../common/constants/cnblog'
+import { useThemeOptions } from '@acnb/options'
 import { poll } from '../../common/utils/helpers'
 import {
   getBlogAge,
   getBlogName,
   getFollowers,
   getFollowing,
-  isOwner,
 } from '../../common/utils/cnblog'
-
 import {
   followersDetailsUrl,
   followingDetailsUrl,
@@ -16,18 +14,12 @@ import {
   userDetails,
 } from '../../common/constants/links'
 
-function hideFollowButton() {
-  if (!isOwner()) {
-    return
-  }
-  $('#p_b_follow').hide()
-}
-
-function buildAvatar() {
+function createAvatar() {
+  const { avatar } = useThemeOptions()
   return `<img class='custom-avatar' src='${avatar}' />`
 }
 
-function buildInfo() {
+function createInfo() {
   const name = getBlogName()
   const date = getBlogAge()
   const followers = getFollowers()
@@ -43,14 +35,13 @@ function buildInfo() {
   )
 }
 
-function createProfile() {
-  const avatar = buildAvatar()
-  const info = buildInfo()
-  const profile = $('<div class="custom-profile">').append(avatar).append(info)
-  $('#sidebar_news_content').before(profile)
+function buildProfile() {
+  const avatar = createAvatar()
+  const info = createInfo()
+  $('.custom-profile').append(avatar).append(info)
 }
 
 export default () => {
-  hideFollowButton()
-  poll(() => $('#profile_block>a').length, createProfile)
+  $('#sidebar_news_content').before(('<div class="custom-profile">'))
+  poll(() => $('#profile_block>a').length, buildProfile)
 }

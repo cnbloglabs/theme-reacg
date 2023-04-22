@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import { IgnorePublicPlugin } from 'vite-plugin-ignore-public'
 
-export default defineConfig(({ command, mode }) => ({
+export default defineConfig(() => ({
   plugins: [
     IgnorePublicPlugin(),
   ],
@@ -30,7 +30,7 @@ export default defineConfig(({ command, mode }) => ({
       formats: ['iife'],
       entry: './src/main.js',
       name: 'theme',
-      fileName: 'index',
+      fileName: () => 'reacg.js',
     },
   },
 }))
