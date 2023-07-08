@@ -134,7 +134,10 @@ createTheme()
   .use(
     donation,
     {
-      enable: false,
+      enable: true,
+      qrcodes: [
+        'https://www.cnblogs.com/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM',
+      ],
     },
   )
   .use(
